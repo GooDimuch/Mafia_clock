@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Mafia_Clock</string>
+    <string name="time">Time</string>
+    <string name="pause">Pause</string>
+    <string name="unpause">Unpause</string>
+    <string name="reset">Reset</string>
+    <string name="sixty_sec">60 sec</string>
+    <string name="thirty_sec">30 sec</string>
+</resources>
