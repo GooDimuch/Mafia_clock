@@ -14,6 +14,7 @@ public class MyPresenter {
 
     private boolean isActiveTimer;
     private boolean isPause;
+    private boolean isReset;
 
     public MyPresenter() {
 
@@ -44,7 +45,7 @@ public class MyPresenter {
             @Override
             public void onFinish() {
                 myView.changeBtnTime(String.valueOf(time));
-                myView.playEndSignal();
+                if (!isReset) myView.playEndSignal();
                 isActiveTimer = false;
 
                 if (time==30) {
@@ -79,9 +80,12 @@ public class MyPresenter {
     }
 
     public void reset() {
+        isReset = true;
         if (isActiveTimer) {
             countDownTimerPausableTime.onFinish();
             countDownTimerPausableTime.cancel();
+            if (isPause) myView.changeBtnPause("Pause");
         }
+        isReset = false;
     }
 }
