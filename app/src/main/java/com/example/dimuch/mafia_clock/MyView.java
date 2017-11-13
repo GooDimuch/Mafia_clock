@@ -24,5 +24,5 @@ public interface MyView {
 
     void unpauseWarningSignal();
 
-    void playEndSignal();
+    void stopSignal();
 }

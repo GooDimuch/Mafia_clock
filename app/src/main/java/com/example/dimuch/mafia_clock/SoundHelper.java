@@ -20,14 +20,17 @@ public class SoundHelper {
 
     public SoundHelper(Context context) {
         this.context = context;
+    }
 
+    public void loadSignal() {
+        Log.d(Constants.LOG_TAG, "loadSignal");
         sp = new SoundPool(MAX_STREAMS, AudioManager.STREAM_MUSIC, 0);
 
         warningSignal = sp.load(context, R.raw.warning_signal, 1);
-        endSignal = sp.load(context, R.raw.finish, 1);
+        //endSignal = sp.load(context, R.raw.finish, 1);
     }
 
-    public void playWarningSignal() {
+    public void stopSignal() {
         Log.d(Constants.LOG_TAG, "warningSignal");
         sp.play(warningSignal, 1, 1, 0, 0, 1);
     }
@@ -44,7 +47,8 @@ public class SoundHelper {
 
     public void playEndSignal() {
         Log.d(Constants.LOG_TAG, "endSignal");
-        sp.play(endSignal, 1, 1, 0, 0, 1);
+        sp.stop(warningSignal);
+        //sp.play(endSignal, 1, 1, 0, 0, 1);
     }
 
 }
